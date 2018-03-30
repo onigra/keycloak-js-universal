@@ -17,4 +17,20 @@ describe('KcConfig', () => {
     assert(kcConfig.clientId === "my-realm-client")
     assert(kcConfig.redirectUri === "https://localhost:3000/")
   })
+
+  test('authUrl', () => {
+    const kcConfig = new KcConfig(config)
+
+    assert(kcConfig.authUrl() ===
+      "https://localhost:8080/auth/realms/my-realm/protocol/openid-connect/auth?client_id=my-realm-client&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F"
+    )
+  })
+
+  test('registrationUrl', () => {
+    const kcConfig = new KcConfig(config)
+
+    assert(kcConfig.registrationUrl() ===
+      "https://localhost:8080/auth/realms/my-realm/protocol/openid-connect/registrations?client_id=my-realm-client&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F"
+    )
+  })
 })
