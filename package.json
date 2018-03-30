@@ -9,12 +9,14 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-power-assert": "^2.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.0",
     "jest": "^22.4.3",
+    "power-assert": "^1.4.4",
     "prettier": "^1.11.1"
   }
 }
