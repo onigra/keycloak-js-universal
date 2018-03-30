@@ -1,8 +1,6 @@
 {
   "presets": [
-    [
-      "env"
-    ],
+    ["env"],
     "flow"
   ],
   "plugins": [
@@ -12,9 +10,7 @@
   "env": {
     "test": {
       "presets": [
-        [
-          "env"
-        ],
+        ["env"],
         "power-assert",
         "flow"
       ]
