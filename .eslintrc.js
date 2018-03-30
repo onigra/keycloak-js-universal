@@ -4,6 +4,7 @@ module.exports = {
   env: {
     es6: true,
     node: true,
+    jest: true,
   },
   rules: {
     semi: ['error', 'never']
