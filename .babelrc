@@ -15,7 +15,8 @@
         [
           "env"
         ],
-        "power-assert"
+        "power-assert",
+        "flow"
       ]
     }
   }
