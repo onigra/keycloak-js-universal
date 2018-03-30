@@ -1,0 +1,7 @@
+{
+  "name": "keycloak-js-universal",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "onigra",
+  "license": "MIT"
+}
