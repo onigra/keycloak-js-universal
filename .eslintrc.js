@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: ['prettier', 'import', 'babel'],
+  plugins: ['prettier', 'import', 'babel', 'flowtype'],
   extends: ['prettier', 'airbnb-base'],
   env: {
     es6: true,
