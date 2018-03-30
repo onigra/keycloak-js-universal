@@ -4,6 +4,26 @@
   "main": "index.js",
   "author": "onigra",
   "license": "MIT",
+  "scripts": {
+    "fmt": "prettier '**/*.js'",
+    "fmt:check": "npm run fmt -- --list-different",
+    "fmt:fix": "npm run fmt -- --write",
+    "lint": "eslint --ext .js src",
+    "lint:fix": "npm run lint -- --fix",
+    "test": "jest"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "^~/(.*)$": "<rootDir>/$1"
+    },
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    }
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
