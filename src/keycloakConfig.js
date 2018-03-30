@@ -1,6 +1,6 @@
 // @flow
 
-class KcConfig {
+class KeycloakConfig {
   realm: string;
   url: string;
   clientId: string;
@@ -30,4 +30,4 @@ class KcConfig {
   }
 }
 
-module.exports = KcConfig
+module.exports = KeycloakConfig

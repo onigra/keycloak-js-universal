@@ -1,7 +1,7 @@
-import KcConfig from '~/src/kcConfig'
+import KeycloakConfig from '~/src/keycloakConfig'
 import assert from 'assert'
 
-describe('KcConfig', () => {
+describe('KeycloakConfig', () => {
   const config = {
     realm: "my-realm",
     url: "https://localhost:8080/auth",
@@ -10,7 +10,7 @@ describe('KcConfig', () => {
   }
 
   test('constructor', () => {
-    const kcConfig = new KcConfig(config)
+    const kcConfig = new KeycloakConfig(config)
 
     assert(kcConfig.realm === "my-realm")
     assert(kcConfig.url === "https://localhost:8080/auth")
@@ -19,7 +19,7 @@ describe('KcConfig', () => {
   })
 
   test('authUrl', () => {
-    const kcConfig = new KcConfig(config)
+    const kcConfig = new KeycloakConfig(config)
 
     assert(kcConfig.authUrl() ===
       "https://localhost:8080/auth/realms/my-realm/protocol/openid-connect/auth?client_id=my-realm-client&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F"
@@ -27,7 +27,7 @@ describe('KcConfig', () => {
   })
 
   test('registrationUrl', () => {
-    const kcConfig = new KcConfig(config)
+    const kcConfig = new KeycloakConfig(config)
 
     assert(kcConfig.registrationUrl() ===
       "https://localhost:8080/auth/realms/my-realm/protocol/openid-connect/registrations?client_id=my-realm-client&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F"
