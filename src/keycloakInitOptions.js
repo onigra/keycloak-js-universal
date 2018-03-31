@@ -17,7 +17,17 @@ class KeycloakInitOptions {
     hybrid: 'code id_token token',
   }
 
-  constructor(options: { responseMode: ResponseMode, flow: Flow, onLoad: OnLoad }) {
+  constructor(
+    options: {
+      responseMode: ResponseMode,
+      flow: Flow,
+      onLoad: OnLoad,
+    } = {
+      responseMode: 'fragment',
+      flow: 'standard',
+      onLoad: 'check-sso',
+    },
+  ) {
     this.responseMode = options.responseMode
     this.flow = options.flow
     this.responseType = KeycloakInitOptions.RESPONSE_TYPE[options.flow]
