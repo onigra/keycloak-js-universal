@@ -13,6 +13,10 @@
         ["env"],
         "power-assert",
         "flow"
+      ],
+      "plugins": [
+        "transform-class-properties",
+        "transform-object-rest-spread"
       ]
     }
   }
