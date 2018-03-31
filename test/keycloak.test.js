@@ -10,20 +10,22 @@ describe('Keycloak', () => {
   }
 
   test('createLoginUrl', () => {
-    const keycloak = new Keycloak(config)
+    const expected =
+      'https://localhost:8080' +
+      '/auth/realms/my-realm/protocol/openid-connect/auth' +
+      '?client_id=my-realm-client&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F'
 
-    assert(
-      keycloak.createLoginUrl() ===
-        'https://localhost:8080/auth/realms/my-realm/protocol/openid-connect/auth?client_id=my-realm-client&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F',
-    )
+    const keycloak = new Keycloak(config)
+    assert(expected === keycloak.createLoginUrl())
   })
 
   test('createRegisterUrl', () => {
-    const keycloak = new Keycloak(config)
+    const expected =
+      'https://localhost:8080' +
+      '/auth/realms/my-realm/protocol/openid-connect/registrations' +
+      '?client_id=my-realm-client&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F'
 
-    assert(
-      keycloak.createRegisterUrl() ===
-        'https://localhost:8080/auth/realms/my-realm/protocol/openid-connect/registrations?client_id=my-realm-client&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F',
-    )
+    const keycloak = new Keycloak(config)
+    assert(expected === keycloak.createRegisterUrl())
   })
 })
