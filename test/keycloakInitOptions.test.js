@@ -11,5 +11,6 @@ describe('KeycloakInitOptions', () => {
 
     assert(initOptions.responseMode === 'fragment')
     assert(initOptions.flow === 'standard')
+    assert(initOptions.responseType === 'code')
   })
 })
