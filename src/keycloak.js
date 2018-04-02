@@ -14,7 +14,7 @@ class Keycloak {
   }
 
   createLoginUrl() {
-    // const scope = (initOptions && initOptions.scope) ? "openid " + initOptions.scope : "openid";
+    // const scope = this.options.scope ? "openid " + this.options.scope : "openid"
     const scope = 'openid'
 
     return this.config.authUrl()
@@ -25,7 +25,7 @@ class Keycloak {
   }
 
   createRegisterUrl() {
-    // const scope = (initOptions && initOptions.scope) ? "openid " + initOptions.scope : "openid";
+    // const scope = this.options.scope ? "openid " + this.options.scope : "openid"
     const scope = 'openid'
 
     return this.config.registrationUrl()
