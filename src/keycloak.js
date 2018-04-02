@@ -16,11 +16,15 @@ class Keycloak {
   createLoginUrl() {
     return this.config.authUrl()
       + '&state=' + encodeURIComponent(createUUID())
+      + '&response_mode=' + encodeURIComponent(this.options.responseMode)
+      + '&response_type=' + encodeURIComponent(this.options.responseType)
   }
 
   createRegisterUrl() {
     return this.config.registrationUrl()
       + '&state=' + encodeURIComponent(createUUID())
+      + '&response_mode=' + encodeURIComponent(this.options.responseMode)
+      + '&response_type=' + encodeURIComponent(this.options.responseType)
   }
 }
 
