@@ -2,6 +2,7 @@
 
 import KeyclaokConfig from './keycloakConfig'
 import KeyclaokInitOptions from './keycloakInitOptions'
+import createUUID from './uuid'
 
 class Keycloak {
   config: KeyclaokConfig
@@ -14,10 +15,12 @@ class Keycloak {
 
   createLoginUrl() {
     return this.config.authUrl()
+      + '&state=' + encodeURIComponent(createUUID())
   }
 
   createRegisterUrl() {
     return this.config.registrationUrl()
+      + '&state=' + encodeURIComponent(createUUID())
   }
 }
 
