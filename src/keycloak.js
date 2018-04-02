@@ -14,17 +14,25 @@ class Keycloak {
   }
 
   createLoginUrl() {
+    // const scope = (initOptions && initOptions.scope) ? "openid " + initOptions.scope : "openid";
+    const scope = 'openid'
+
     return this.config.authUrl()
       + '&state=' + encodeURIComponent(createUUID())
       + '&response_mode=' + encodeURIComponent(this.options.responseMode)
       + '&response_type=' + encodeURIComponent(this.options.responseType)
+      + '&scope=' + encodeURIComponent(scope)
   }
 
   createRegisterUrl() {
+    // const scope = (initOptions && initOptions.scope) ? "openid " + initOptions.scope : "openid";
+    const scope = 'openid'
+
     return this.config.registrationUrl()
       + '&state=' + encodeURIComponent(createUUID())
       + '&response_mode=' + encodeURIComponent(this.options.responseMode)
       + '&response_type=' + encodeURIComponent(this.options.responseType)
+      + '&scope=' + encodeURIComponent(scope)
   }
 }
 
