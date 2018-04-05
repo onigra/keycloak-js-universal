@@ -4,7 +4,7 @@ import KeyclaokConfig from './keycloakConfig'
 import KeyclaokInitOptions from './keycloakInitOptions'
 import createUUID from './uuid'
 
-class Keycloak {
+export default class Keycloak {
   config: KeyclaokConfig
   options: KeyclaokInitOptions
 
@@ -35,5 +35,3 @@ class Keycloak {
       + '&scope=' + encodeURIComponent(scope)
   }
 }
-
-module.exports = Keycloak

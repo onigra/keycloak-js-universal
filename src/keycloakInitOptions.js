@@ -5,7 +5,7 @@ type Flow = 'standard' | 'implicit' | 'hybrid'
 type ResponseType = 'code' | 'id_token token' | 'code id_token token'
 type OnLoad = 'login-required' | 'check-sso'
 
-class KeycloakInitOptions {
+export default class KeycloakInitOptions {
   responseMode: ResponseMode
   flow: Flow
   responseType: ResponseType
@@ -34,5 +34,3 @@ class KeycloakInitOptions {
     this.onLoad = options.onLoad
   }
 }
-
-module.exports = KeycloakInitOptions
