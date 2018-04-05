@@ -8,30 +8,38 @@ export default class Keycloak {
   config: KeyclaokConfig
   options: KeyclaokInitOptions
 
-  constructor(config: { realm: string, url: string, clientId: string, redirectUri: string }) {
+  constructor(config: {
+    realm: string,
+    url: string,
+    clientId: string,
+    redirectUri: string,
+    scope: string | void,
+  }) {
     this.config = new KeyclaokConfig(config)
     this.options = new KeyclaokInitOptions()
   }
 
   createLoginUrl() {
-    // const scope = this.options.scope ? "openid " + this.options.scope : "openid"
-    const scope = 'openid'
-
-    return this.config.authUrl()
-      + '&state=' + encodeURIComponent(createUUID())
-      + '&response_mode=' + encodeURIComponent(this.options.responseMode)
-      + '&response_type=' + encodeURIComponent(this.options.responseType)
-      + '&scope=' + encodeURIComponent(scope)
+    return (
+      this.config.authUrl() +
+      '&state=' +
+      encodeURIComponent(createUUID()) +
+      '&response_mode=' +
+      encodeURIComponent(this.options.responseMode) +
+      '&response_type=' +
+      encodeURIComponent(this.options.responseType)
+    )
   }
 
   createRegisterUrl() {
-    // const scope = this.options.scope ? "openid " + this.options.scope : "openid"
-    const scope = 'openid'
-
-    return this.config.registrationUrl()
-      + '&state=' + encodeURIComponent(createUUID())
-      + '&response_mode=' + encodeURIComponent(this.options.responseMode)
-      + '&response_type=' + encodeURIComponent(this.options.responseType)
-      + '&scope=' + encodeURIComponent(scope)
+    return (
+      this.config.registrationUrl() +
+      '&state=' +
+      encodeURIComponent(createUUID()) +
+      '&response_mode=' +
+      encodeURIComponent(this.options.responseMode) +
+      '&response_type=' +
+      encodeURIComponent(this.options.responseType)
+    )
   }
 }

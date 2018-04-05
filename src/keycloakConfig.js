@@ -5,12 +5,20 @@ export default class KeycloakConfig {
   url: string
   clientId: string
   redirectUri: string
+  scope: string
 
-  constructor(props: { realm: string, url: string, clientId: string, redirectUri: string }) {
+  constructor(props: {
+    realm: string,
+    url: string,
+    clientId: string,
+    redirectUri: string,
+    scope: string | void,
+  }) {
     this.realm = props.realm
     this.url = props.url
     this.clientId = props.clientId
     this.redirectUri = props.redirectUri
+    this.scope = props.scope ? props.scope : 'openid'
   }
 
   authUrl() {
@@ -22,7 +30,9 @@ export default class KeycloakConfig {
       '?client_id=' +
       encodeURIComponent(this.clientId) +
       '&redirect_uri=' +
-      encodeURIComponent(this.redirectUri)
+      encodeURIComponent(this.redirectUri) +
+      '&scope=' +
+      encodeURIComponent(this.scope)
     )
   }
 
@@ -35,7 +45,9 @@ export default class KeycloakConfig {
       '?client_id=' +
       encodeURIComponent(this.clientId) +
       '&redirect_uri=' +
-      encodeURIComponent(this.redirectUri)
+      encodeURIComponent(this.redirectUri) +
+      '&scope=' +
+      encodeURIComponent(this.scope)
     )
   }
 }
