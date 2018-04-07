@@ -41,5 +41,8 @@
     "jest": "^22.4.3",
     "power-assert": "^1.4.4",
     "prettier": "^1.11.1"
+  },
+  "dependencies": {
+    "oidc-client": "^1.4.1"
   }
 }
