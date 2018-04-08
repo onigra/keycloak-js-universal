@@ -2,11 +2,13 @@
 
 import KeycloakConfig from './keycloakConfig'
 import KeycloakOptions from './keycloakOptions'
+import OidcClient from './oidcClient'
 import createUUID from './uuid'
 
 export default class Keycloak {
   config: KeycloakConfig
   options: KeycloakOptions
+  oidcClient: OidcClient
 
   constructor(config: {
     realm: string,
@@ -19,6 +21,7 @@ export default class Keycloak {
   }) {
     this.config = new KeycloakConfig(config)
     this.options = new KeycloakOptions()
+    this.oidcClient = OidcClient.createClient(this.config, this.options)
   }
 
   createRegisterUrl() {
