@@ -19,6 +19,7 @@ describe('Keycloak', () => {
       '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback%2Fsignup' +
       '&scope=openid' +
       '&state=([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})' +
+      '&nonce=([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})' +
       '&response_mode=fragment' +
       '&response_type=code'
     const expected = new RegExp(urlRegexp)

@@ -26,6 +26,8 @@ export default class Keycloak {
       this.config.registrationUrl() +
       '&state=' +
       encodeURIComponent(createUUID()) +
+      '&nonce=' +
+      encodeURIComponent(createUUID()) +
       '&response_mode=' +
       encodeURIComponent(this.options.responseMode) +
       '&response_type=' +
