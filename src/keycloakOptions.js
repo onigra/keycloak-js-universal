@@ -1,9 +1,6 @@
 // @flow
 
-type ResponseMode = 'query' | 'fragment'
-type Flow = 'standard' | 'implicit' | 'hybrid'
-type ResponseType = 'code' | 'id_token token' | 'code id_token token'
-type OnLoad = 'login-required' | 'check-sso'
+import type { ResponseMode, Flow, ResponseType, OnLoad } from './optionTypes'
 
 export default class KeycloakOptions {
   responseMode: ResponseMode
