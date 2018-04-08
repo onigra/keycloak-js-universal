@@ -8,7 +8,6 @@ describe('KeycloakOptions', () => {
     assert(options.responseMode === 'fragment')
     assert(options.flow === 'implicit')
     assert(options.responseType === 'id_token token')
-    assert(options.onLoad === 'check-sso')
   })
 
   test('flow is standard', () => {
@@ -17,7 +16,6 @@ describe('KeycloakOptions', () => {
     assert(options.responseMode === 'fragment')
     assert(options.flow === 'standard')
     assert(options.responseType === 'code')
-    assert(options.onLoad === 'check-sso')
   })
 
   test('flow is hybrid', () => {
@@ -26,6 +24,5 @@ describe('KeycloakOptions', () => {
     assert(options.responseMode === 'fragment')
     assert(options.flow === 'hybrid')
     assert(options.responseType === 'code id_token token')
-    assert(options.onLoad === 'check-sso')
   })
 })

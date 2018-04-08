@@ -4,7 +4,7 @@ import KeycloakConfig from './keycloakConfig'
 import KeycloakOptions from './keycloakOptions'
 import OidcClient from './oidcClient'
 import createUUID from './uuid'
-import type { ResponseMode, Flow, OnLoad } from './optionTypes'
+import type { ResponseMode, Flow } from './optionTypes'
 
 export default class Keycloak {
   config: KeycloakConfig
@@ -24,7 +24,6 @@ export default class Keycloak {
     options: {
       responseMode: ResponseMode,
       flow: Flow,
-      onLoad: OnLoad,
     },
   ) {
     this.config = new KeycloakConfig(config)

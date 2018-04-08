@@ -1,12 +1,11 @@
 // @flow
 
-import type { ResponseMode, Flow, ResponseType, OnLoad } from './optionTypes'
+import type { ResponseMode, Flow, ResponseType } from './optionTypes'
 
 export default class KeycloakOptions {
   responseMode: ResponseMode
   flow: Flow
   responseType: ResponseType
-  onLoad: OnLoad
 
   static RESPONSE_TYPE = {
     standard: 'code',
@@ -18,11 +17,9 @@ export default class KeycloakOptions {
     options: {
       responseMode: ResponseMode,
       flow: Flow,
-      onLoad: OnLoad,
     } = {
       responseMode: 'fragment',
       flow: 'implicit',
-      onLoad: 'check-sso',
     },
   ) {
     this.responseMode = options.responseMode ? options.responseMode : 'fragment'
@@ -30,6 +27,5 @@ export default class KeycloakOptions {
     this.responseType = options.flow
       ? KeycloakOptions.RESPONSE_TYPE[options.flow]
       : KeycloakOptions.RESPONSE_TYPE['implicit']
-    this.onLoad = options.onLoad ? options.onLoad : 'check-sso'
   }
 }
