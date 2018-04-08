@@ -25,9 +25,11 @@ export default class KeycloakOptions {
       onLoad: 'check-sso',
     },
   ) {
-    this.responseMode = options.responseMode
-    this.flow = options.flow
-    this.responseType = KeycloakOptions.RESPONSE_TYPE[options.flow]
-    this.onLoad = options.onLoad
+    this.responseMode = options.responseMode ? options.responseMode : 'fragment'
+    this.flow = options.flow ? options.flow : 'implicit'
+    this.responseType = options.flow
+      ? KeycloakOptions.RESPONSE_TYPE[options.flow]
+      : KeycloakOptions.RESPONSE_TYPE['implicit']
+    this.onLoad = options.onLoad ? options.onLoad : 'check-sso'
   }
 }

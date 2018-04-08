@@ -14,14 +14,18 @@ describe('KeycloakOptions', () => {
   test('flow is standard', () => {
     const options = new KeycloakOptions({ flow: 'standard' })
 
+    assert(options.responseMode === 'fragment')
     assert(options.flow === 'standard')
     assert(options.responseType === 'code')
+    assert(options.onLoad === 'check-sso')
   })
 
   test('flow is hybrid', () => {
     const options = new KeycloakOptions({ flow: 'hybrid' })
 
+    assert(options.responseMode === 'fragment')
     assert(options.flow === 'hybrid')
     assert(options.responseType === 'code id_token token')
+    assert(options.onLoad === 'check-sso')
   })
 })
