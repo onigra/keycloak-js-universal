@@ -1,5 +1,6 @@
 import Keycloak from '~/src/keycloak'
 import assert from 'assert'
+import 'jest-localstorage-mock'
 
 describe('Keycloak', () => {
   const config = {
