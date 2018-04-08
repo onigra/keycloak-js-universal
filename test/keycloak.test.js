@@ -28,4 +28,44 @@ describe('Keycloak', () => {
     const keycloak = new Keycloak(config)
     expect(keycloak.createRegisterUrl()).toMatch(expected)
   })
+
+  test('ResponseMode is query', () => {
+    const options = {
+      responseMode: 'query',
+    }
+    const urlRegexp =
+      'https://localhost:8080' +
+      '/auth/realms/my-realm/protocol/openid-connect/registrations' +
+      '\\?client_id=my-realm-client' +
+      '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback%2Fsignup' +
+      '&scope=openid' +
+      '&state=([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})' +
+      '&nonce=([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})' +
+      '&response_mode=query' +
+      '&response_type=id_token%20token'
+    const expected = new RegExp(urlRegexp)
+
+    const keycloak = new Keycloak(config, options)
+    expect(keycloak.createRegisterUrl()).toMatch(expected)
+  })
+
+  test('Flow is standard', () => {
+    const options = {
+      flow: 'standard',
+    }
+    const urlRegexp =
+      'https://localhost:8080' +
+      '/auth/realms/my-realm/protocol/openid-connect/registrations' +
+      '\\?client_id=my-realm-client' +
+      '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback%2Fsignup' +
+      '&scope=openid' +
+      '&state=([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})' +
+      '&nonce=([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})' +
+      '&response_mode=fragment' +
+      '&response_type=code'
+    const expected = new RegExp(urlRegexp)
+
+    const keycloak = new Keycloak(config, options)
+    expect(keycloak.createRegisterUrl()).toMatch(expected)
+  })
 })
