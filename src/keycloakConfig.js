@@ -4,36 +4,27 @@ export default class KeycloakConfig {
   realm: string
   url: string
   clientId: string
-  redirectUri: string
+  loginRedirectUri: string
+  logoutRedirectUri: string
+  signupRedirectUri: string
   scope: string
 
   constructor(props: {
     realm: string,
     url: string,
     clientId: string,
-    redirectUri: string,
+    loginRedirectUri: string,
+    logoutRedirectUri: string,
+    signupRedirectUri: string,
     scope: string | void,
   }) {
     this.realm = props.realm
     this.url = props.url
     this.clientId = props.clientId
-    this.redirectUri = props.redirectUri
+    this.loginRedirectUri = props.loginRedirectUri
+    this.logoutRedirectUri = props.logoutRedirectUri
+    this.signupRedirectUri = props.signupRedirectUri
     this.scope = props.scope ? props.scope : 'openid'
-  }
-
-  authUrl() {
-    return (
-      this.url +
-      '/realms/' +
-      this.realm +
-      '/protocol/openid-connect/auth' +
-      '?client_id=' +
-      encodeURIComponent(this.clientId) +
-      '&redirect_uri=' +
-      encodeURIComponent(this.redirectUri) +
-      '&scope=' +
-      encodeURIComponent(this.scope)
-    )
   }
 
   registrationUrl() {
@@ -45,7 +36,7 @@ export default class KeycloakConfig {
       '?client_id=' +
       encodeURIComponent(this.clientId) +
       '&redirect_uri=' +
-      encodeURIComponent(this.redirectUri) +
+      encodeURIComponent(this.signupRedirectUri) +
       '&scope=' +
       encodeURIComponent(this.scope)
     )

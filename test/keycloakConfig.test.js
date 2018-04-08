@@ -7,7 +7,9 @@ describe('KeycloakConfig', () => {
       realm: 'my-realm',
       url: 'https://localhost:8080/auth',
       clientId: 'my-realm-client',
-      redirectUri: 'https://localhost:3000/',
+      loginRedirectUri: 'https://localhost:3000/callback/login',
+      logoutRedirectUri: 'https://localhost:3000/callback/logout',
+      signupRedirectUri: 'https://localhost:3000/callback/signup',
     }
 
     test('constructor', () => {
@@ -16,20 +18,10 @@ describe('KeycloakConfig', () => {
       assert(kcConfig.realm === 'my-realm')
       assert(kcConfig.url === 'https://localhost:8080/auth')
       assert(kcConfig.clientId === 'my-realm-client')
-      assert(kcConfig.redirectUri === 'https://localhost:3000/')
+      assert(kcConfig.loginRedirectUri === 'https://localhost:3000/callback/login')
+      assert(kcConfig.logoutRedirectUri === 'https://localhost:3000/callback/logout')
+      assert(kcConfig.signupRedirectUri === 'https://localhost:3000/callback/signup')
       assert(kcConfig.scope === 'openid')
-    })
-
-    test('authUrl', () => {
-      const expected =
-        'https://localhost:8080' +
-        '/auth/realms/my-realm/protocol/openid-connect/auth' +
-        '?client_id=my-realm-client' +
-        '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F' +
-        '&scope=openid'
-
-      const kcConfig = new KeycloakConfig(config)
-      assert(expected === kcConfig.authUrl())
     })
 
     test('registrationUrl', () => {
@@ -37,7 +29,7 @@ describe('KeycloakConfig', () => {
         'https://localhost:8080' +
         '/auth/realms/my-realm/protocol/openid-connect/registrations' +
         '?client_id=my-realm-client' +
-        '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F' +
+        '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback%2Fsignup' +
         '&scope=openid'
 
       const kcConfig = new KeycloakConfig(config)
@@ -50,7 +42,9 @@ describe('KeycloakConfig', () => {
       realm: 'my-realm',
       url: 'https://localhost:8080/auth',
       clientId: 'my-realm-client',
-      redirectUri: 'https://localhost:3000/',
+      loginRedirectUri: 'https://localhost:3000/callback/login',
+      logoutRedirectUri: 'https://localhost:3000/callback/logout',
+      signupRedirectUri: 'https://localhost:3000/callback/signup',
       scope: 'openid user role',
     }
 
@@ -60,20 +54,10 @@ describe('KeycloakConfig', () => {
       assert(kcConfig.realm === 'my-realm')
       assert(kcConfig.url === 'https://localhost:8080/auth')
       assert(kcConfig.clientId === 'my-realm-client')
-      assert(kcConfig.redirectUri === 'https://localhost:3000/')
+      assert(kcConfig.loginRedirectUri === 'https://localhost:3000/callback/login')
+      assert(kcConfig.logoutRedirectUri === 'https://localhost:3000/callback/logout')
+      assert(kcConfig.signupRedirectUri === 'https://localhost:3000/callback/signup')
       assert(kcConfig.scope === 'openid user role')
-    })
-
-    test('authUrl', () => {
-      const expected =
-        'https://localhost:8080' +
-        '/auth/realms/my-realm/protocol/openid-connect/auth' +
-        '?client_id=my-realm-client' +
-        '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F' +
-        '&scope=openid%20user%20role'
-
-      const kcConfig = new KeycloakConfig(config)
-      assert(expected === kcConfig.authUrl())
     })
 
     test('registrationUrl', () => {
@@ -81,7 +65,7 @@ describe('KeycloakConfig', () => {
         'https://localhost:8080' +
         '/auth/realms/my-realm/protocol/openid-connect/registrations' +
         '?client_id=my-realm-client' +
-        '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2F' +
+        '&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback%2Fsignup' +
         '&scope=openid%20user%20role'
 
       const kcConfig = new KeycloakConfig(config)
