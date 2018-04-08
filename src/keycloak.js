@@ -1,12 +1,12 @@
 // @flow
 
-import KeyclaokConfig from './keycloakConfig'
-import KeyclaokInitOptions from './keycloakInitOptions'
+import KeycloakConfig from './keycloakConfig'
+import KeycloakOptions from './keycloakOptions'
 import createUUID from './uuid'
 
 export default class Keycloak {
-  config: KeyclaokConfig
-  options: KeyclaokInitOptions
+  config: KeycloakConfig
+  options: KeycloakOptions
 
   constructor(config: {
     realm: string,
@@ -15,8 +15,8 @@ export default class Keycloak {
     redirectUri: string,
     scope: string | void,
   }) {
-    this.config = new KeyclaokConfig(config)
-    this.options = new KeyclaokInitOptions()
+    this.config = new KeycloakConfig(config)
+    this.options = new KeycloakOptions()
   }
 
   createLoginUrl() {
