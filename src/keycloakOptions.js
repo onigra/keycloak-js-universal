@@ -21,7 +21,7 @@ export default class KeycloakOptions {
       onLoad: OnLoad,
     } = {
       responseMode: 'fragment',
-      flow: 'standard',
+      flow: 'implicit',
       onLoad: 'check-sso',
     },
   ) {

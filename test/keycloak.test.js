@@ -22,7 +22,7 @@ describe('Keycloak', () => {
       '&state=([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})' +
       '&nonce=([0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})' +
       '&response_mode=fragment' +
-      '&response_type=code'
+      '&response_type=id_token%20token'
     const expected = new RegExp(urlRegexp)
 
     const keycloak = new Keycloak(config)
